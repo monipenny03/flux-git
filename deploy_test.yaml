@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cnf-simple
+  labels:
+    app: nginx
+    app.kubernetes.io/instance: cnf-simple
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        app.kubernetes.io/instance: cnf-simple
+    spec:
+      containers:
+      - name: cnf-simple
+        image: nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80  
