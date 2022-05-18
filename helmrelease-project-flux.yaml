@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-project-flux
+  namespace: project-flux
+spec:
+  chart:
+    spec:
+      chart: cnf-simple
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: source-project-flux
+  interval: 24h0m0s
+  values:
+    image: nginx
+    pullPolicy: IfNotPresent
+    replicaCount: 1
+    version: stable
+
