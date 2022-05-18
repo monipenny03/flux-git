@@ -1,9 +1,0 @@
-# Default values for charttest.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-replicaCount: 4
-
-image: nginx
-version: stable
-pullPolicy: IfNotPresent
